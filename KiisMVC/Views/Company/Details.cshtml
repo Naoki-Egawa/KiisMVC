@@ -1,0 +1,113 @@
+﻿@model KiisMVC.Models.T_CompanyMaster
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>T_CompanyMaster</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.社保記号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.社保記号)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.番号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.番号)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.事業所名)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.事業所名)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.事業主)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.事業主)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.郵便番号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.郵便番号)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.住所01)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.住所01)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.住所02)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.住所02)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.電話番号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.電話番号)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.被保険者数_男)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.被保険者数_男)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.被保険者数_女)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.被保険者数_女)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.被保険者数計)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.被保険者数計)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.T_00_事業所登録台帳_付加情報_記号)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.T_00_事業所登録台帳_付加情報_記号)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("一覧に戻る", "Index")
+</p>

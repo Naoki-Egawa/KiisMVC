@@ -1,0 +1,100 @@
+﻿@model IEnumerable<KiisMVC.Models.T_CompanyMaster>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>事業所登録台帳</h3>
+
+<table class="table table-hover table-condensed table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.記号)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.社保記号)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.番号)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.事業所名)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.事業主)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.郵便番号)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.住所01)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.住所02)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.電話番号)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.被保険者数_男)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.被保険者数_女)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.被保険者数計)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.T_00_事業所登録台帳_付加情報_記号)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(x => item.記号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.社保記号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.番号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.事業所名)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.事業主)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.郵便番号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.住所01)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.住所02)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.電話番号)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.被保険者数_男)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.被保険者数_女)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.被保険者数計)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.T_00_事業所登録台帳_付加情報_記号)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.記号 })
+        </td>
+    </tr>
+}
+
+</table>
