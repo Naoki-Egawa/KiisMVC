@@ -41,6 +41,46 @@ namespace KiisMVC.Controllers
             return View();
         }
 
+        [HttpPost]
+        public ActionResult ShearchQuery([Bind(Include = "記号,事業所名")] string kigou,string bango)
+        {
+            if (ModelState.IsValid)
+            {
+                int outKigou = 0;
+
+                IQueryable<T_CompanyMaster> q = null;
+
+                if (!string.IsNullOrEmpty(kigou.ToString()) & !string.IsNullOrEmpty(bango))
+                {
+                    int.TryParse(kigou, out outKigou);
+
+                    q = db.T_CompanyMaster.Where(x => x.記号 == outKigou).Where(x => x.事業所名.Contains(bango));
+
+                    return View(q);
+                }
+                else if (!string.IsNullOrEmpty(kigou))
+                {
+                    int.TryParse(kigou, out outKigou);
+                    q = db.T_CompanyMaster.Where(x => x.記号 == outKigou);
+
+                }
+                else if (!string.IsNullOrEmpty(bango))
+                {
+                    q = db.T_CompanyMaster.Where(x => x.事業所名.Contains(bango));
+
+                }
+
+                return View(q);
+
+
+            }
+
+            else
+            {
+                var q = db.T_CompanyMaster;
+                return View(q);
+            }
+        }
         // POST: Company/Create
         // 過多ポスティング攻撃を防止するには、バインド先とする特定のプロパティを有効にしてください。
         // 詳細については、https://go.microsoft.com/fwlink/?LinkId=317598 を参照してください。

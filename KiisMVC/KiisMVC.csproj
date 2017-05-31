@@ -216,6 +216,7 @@
     <Content Include="Views\Company\Details.cshtml" />
     <Content Include="Views\Company\Edit.cshtml" />
     <Content Include="Views\Company\Index.cshtml" />
+    <Content Include="Views\Company\ShearchQuery.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
