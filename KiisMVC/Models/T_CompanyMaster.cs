@@ -10,7 +10,7 @@ namespace KiisMVC.Models
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int 記号 { get; set; }
+        public string 記号 { get; set; }
 
         public string 社保記号 { get; set; }
 

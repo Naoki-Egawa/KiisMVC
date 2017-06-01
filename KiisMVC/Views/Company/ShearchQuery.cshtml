@@ -9,7 +9,6 @@
     <li>@Html.ActionLink("Kiis", "Index", "Home")</li>
     <li>事業所登録台帳</li>
 </ol>
-
 <!-- Horizontal Form -->
 <div class="box box-info form-horizontal">
     <div class="box-header with-border">
@@ -19,29 +18,33 @@
     <!-- form start -->
 
     @using (Html.BeginForm(
-                          "ShearchQuery",
-                          "Company",
-                          null,
-                          FormMethod.Post,
-                          new { enctype = "multipart/form-data" }
-                          ))
+                                          "ShearchQuery",
+                                          "Company",
+                                          null,
+                                          FormMethod.Post,
+                                          new { enctype = "multipart/form-data" }
+                                          ))
     {
+        @Html.AntiForgeryToken()
 
         @*<form class="form-horizontal">*@
         <div class="box-body">
             <div class="form-group">
                 <label for="inputEmail3" class="col-sm-2 control-label">事業所整理記号</label>
+                @*<input  class="col-sm-10" id="kigou" placeholder="事業所記号を入力" />*@
+                <div class="col-sm-8">
 
-                <div class="col-sm-6">
-                    @Html.TextBox("kigou", "", new { placeholder = "事業所整理記号を入力" })
-
+                    @Html.TextBoxFor(Model => Model.First().記号, htmlAttributes: new { @class = "form-control", @placeholder = "事業所記号を入力" })
+                    @*@Html.TextBox("kigou", "" ,new { placeholder = "事業所整理記号を入力" })*@
                 </div>
+
             </div>
             <div class="form-group">
                 <label class="col-sm-2 control-label">事業所名称</label>
 
-                <div class="col-sm-6">
-                    @Html.TextBox("bango", "", new { placeholder = "事業所名称を入力（一部のみ可）" })
+                <div class="col-sm-8">
+                    @*@Html.TextBox("bango", "", new { placeholder = "事業所名称を入力（一部のみ可）" })*@
+                    @Html.TextBoxFor(Model => Model.First().事業所名, htmlAttributes: new { @class = "form-control", @placeholder = "事業所名称を入力（一部のみ可）" })
                 </div>
             </div>
 
@@ -103,7 +106,7 @@
             <th></th>
         </tr>*@
 
-        @foreach (var item in Model)
+        @foreach (var item in Model.OrderBy(x => x.記号))
             {
             <tr>
                 <td>

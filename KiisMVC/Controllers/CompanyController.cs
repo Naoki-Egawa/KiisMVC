@@ -42,43 +42,53 @@ namespace KiisMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult ShearchQuery([Bind(Include = "記号,事業所名")] string kigou,string bango)
+        [ValidateAntiForgeryToken]
+        public ActionResult ShearchQuery([Bind(Include = "記号,事業所名")] T_CompanyMaster args)
         {
-            if (ModelState.IsValid)
+            try
             {
-                int outKigou = 0;
-
-                IQueryable<T_CompanyMaster> q = null;
-
-                if (!string.IsNullOrEmpty(kigou.ToString()) & !string.IsNullOrEmpty(bango))
+                
+                if (ModelState.IsValid)
                 {
-                    int.TryParse(kigou, out outKigou);
+                    int outKigou = 0;
 
-                    q = db.T_CompanyMaster.Where(x => x.記号 == outKigou).Where(x => x.事業所名.Contains(bango));
+                    IQueryable<T_CompanyMaster> q = null;
+
+                    if (!string.IsNullOrEmpty(args.記号) & !string.IsNullOrEmpty(args.事業所名))
+                    {
+                       
+
+                        q = db.T_CompanyMaster.Where(x => x.記号 == args.記号).Where(x => x.事業所名.Contains(args.事業所名));
+
+
+                    }
+                    else if (!string.IsNullOrEmpty(args.記号))
+                    {
+
+                        q = db.T_CompanyMaster.Where(x => x.記号 == args.記号);
+
+                    }
+                    else if (!string.IsNullOrEmpty(args.事業所名))
+                    {
+                        q = db.T_CompanyMaster.Where(x => x.事業所名.Contains(args.事業所名));
+
+                    }
 
                     return View(q);
+
+
                 }
-                else if (!string.IsNullOrEmpty(kigou))
+
+                else
                 {
-                    int.TryParse(kigou, out outKigou);
-                    q = db.T_CompanyMaster.Where(x => x.記号 == outKigou);
-
+                    var q = db.T_CompanyMaster;
+                    return View(q);
                 }
-                else if (!string.IsNullOrEmpty(bango))
-                {
-                    q = db.T_CompanyMaster.Where(x => x.事業所名.Contains(bango));
-
-                }
-
-                return View(q);
-
-
             }
-
-            else
+            catch (InvalidOperationException ex)
             {
-                var q = db.T_CompanyMaster;
-                return View(q);
+                
+                throw;
             }
         }
         // POST: Company/Create

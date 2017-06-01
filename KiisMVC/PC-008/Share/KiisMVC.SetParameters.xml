@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="KiisMVC" />
+  <setParameter name="KiisDbContext-Web.config Connection String" value="Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=&quot;C:\Users\AichikenpoUser\Documents\Visual Studio 2017\Projects\KiisMVC\KiisMVC\App_Data\KiisDatabase.mdf&quot;;Integrated Security=True;Connect Timeout=30" />
+</parameters>

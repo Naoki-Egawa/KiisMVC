@@ -218,7 +218,9 @@
     <Content Include="Views\Company\Index.cshtml" />
     <Content Include="Views\Company\ShearchQuery.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Properties\PublishProfiles\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>
